@@ -191,9 +191,43 @@ git cat-file -t [上面的 hash]
 ## 分支操作的背后
 
 - `git branch`: list and branches we have
+
 - `git branch <branch_name>`: created a branch with branch_name, if there already have branch with the name you want to create, it will return error 
+
 - `git branch -D <branch_name>`: delete branch, can't delete current active branch or branch not existing
-- `git branch --deletre <branch_namr>`: 只有被 merge 的分支才能被删除，推荐使用
+
+- `git branch --delete <branch_namr>`: 只有被 merge 的分支才能被删除，推荐使用
+
+  - 删除一条分支：
+
+    `git branch \-D branchName`
+
+  - 删除当前分支外的所有分支：
+
+    `git branch | xargs git branch \-d`
+
+  - 删除分支名包含指定'dev'的分支：
+
+    `git branch | grep 'dev\*' | xargs git branch \-d`
+
+  - `| `
+
+    > 管道命令，用于将一串命令串联起来。前面命令的输出可以作为后面命令的输入。
+
+  - `git branch` 
+
+    > 用于列出本地所有分支。
+
+  - `grep` 
+
+    > 搜索过滤命令。使用正则表达式搜索文本，并把匹配的行打印出来。
+
+  - `xargs` 
+
+    > 参数传递命令。用于将标准输入作为命令的参数传给下一个命令。
+
+    [参考](https://segmentfault.com/a/1190000022215551)
+
 - `git checkout`: change the current active branch
 
 ```shell
