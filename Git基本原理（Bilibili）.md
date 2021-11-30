@@ -198,33 +198,25 @@ git cat-file -t [上面的 hash]
 
 - `git branch --delete <branch_namr>`: 只有被 merge 的分支才能被删除，推荐使用
 
-  - 删除一条分支：
+  - 删除一条分支（大写的 D 是强制删除）：
 
-    `git branch \-D branchName`
+    `git branch -D branchName`
 
   - 删除当前分支外的所有分支：
 
-    `git branch | xargs git branch \-d`
+    `git branch | xargs git branch -d`
 
-  - 删除分支名包含指定'dev'的分支：
+  - 删除分支名包含指定 "DIS" 的分支：
 
-    `git branch | grep 'dev\*' | xargs git branch \-d`
+    `git branch | grep 'DIS*' | xargs git branch -D`
 
-  - `| `
+  - `| `：管道命令，用于将一串命令串联起来。前面命令的输出可以作为后面命令的输入。
 
-    > 管道命令，用于将一串命令串联起来。前面命令的输出可以作为后面命令的输入。
+  - `git branch` ：用于列出本地所有分支。
 
-  - `git branch` 
+  - `grep` ：搜索过滤命令。使用正则表达式搜索文本，并把匹配的行打印出来。
 
-    > 用于列出本地所有分支。
-
-  - `grep` 
-
-    > 搜索过滤命令。使用正则表达式搜索文本，并把匹配的行打印出来。
-
-  - `xargs` 
-
-    > 参数传递命令。用于将标准输入作为命令的参数传给下一个命令。
+  - `xargs` ：参数传递命令。用于将标准输入作为命令的参数传给下一个命令。
 
     [参考](https://segmentfault.com/a/1190000022215551)
 
